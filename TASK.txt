@@ -1,0 +1,49 @@
+Your job is to build a complete Freelancer.com bid submission for job_id=JOB-20260415163007-b86751.
+
+FREELANCER.COM BUILD — INCLUDES CODE + PROPOSAL + MILESTONE PLAN:
+Build production code AND proposal documents. All three are required.
+
+STEP-BY-STEP EXECUTION:
+
+1. Read /home/deploy/squad/build-worker/JOB-20260415163007-b86751/TASK.txt — contains full job description
+
+2. Create GitHub repo:
+   - Run: curl -X POST -H "Authorization: token $GITHUB_TOKEN" -d '{"name":"JOB-20260415163007-b86751","description":"Build submission for JOB-20260415163007-b86751","public":true}' https://api.github.com/user/repos
+   - Replace $GITHUB_TOKEN with token from ~/.netrc (github.com password)
+
+3. Build the complete codebase:
+   - Flask backend with all modules (Procurement, Goods Receiving, Production, Packaging, Sales, Financial, Reporting)
+   - Frontend (HTML/JavaScript or appropriate framework)
+   - Database models (PostgreSQL/SQLAlchemy)
+   - Docker setup, tests, README
+   - Push ALL code to the new GitHub repo
+
+4. Write proposal documents:
+   - PROPOSAL.md → /home/deploy/.hermes/proposals/JOB-20260415163007-b86751-proposal.md
+   - MILESTONE_PLAN.md → /home/deploy/.hermes/proposals/JOB-20260415163007-b86751-milestone-plan.md
+
+5. PROPOSAL.md must include:
+   - Why you're the perfect fit (specific examples matching their requirements)
+   - Technical approach / architecture
+   - Understanding of their business domain
+   - Timeline and availability
+   - Rate and terms
+
+6. MILESTONE_PLAN.md must include:
+   - Clear milestone breakdown with deliverables per milestone
+   - Payment amount per milestone (must total client's budget)
+   - Timeline per milestone
+   - What client gets at each milestone
+
+7. VERIFY all exist:
+   - GitHub repo has code: curl -s https://api.github.com/repos/9KMan/JOB-20260415163007-b86751
+   - PROPOSAL.md in /home/deploy/.hermes/proposals/
+   - MILESTONE_PLAN.md in /home/deploy/.hermes/proposals/
+
+8. ONLY THEN advance to DRAFT:
+   python3 /home/deploy/.hermes/scripts/job-advance JOB-20260415163007-b86751 DRAFT build
+
+Check in every 4 hours:
+   python3 /home/deploy/.hermes/scripts/job-checkin JOB-20260415163007-b86751 <note>
+
+START NOW — read /home/deploy/squad/build-worker/JOB-20260415163007-b86751/TASK.txt, then execute all steps above.
